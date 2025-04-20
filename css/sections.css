@@ -48,13 +48,22 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Remove the problematic blur effect that isn't working */
 .hero::before, .hero::after {
     display: none;
 }
 
-
 /* === HERO BUTTONS === */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .hero-buttons .btn-primary {
     background: linear-gradient(45deg, #e76f51, #e95d33);
@@ -81,6 +90,9 @@
     z-index: 1;
     outline: none;
     border: 2px solid rgba(255, 255, 255, 0.2);
+    flex: 1;
+    text-align: center;
+    min-width: 180px;
 }
 
 .hero-buttons .btn::before {
@@ -157,10 +169,19 @@
         width: 100%;
         max-width: 300px;
         margin: 0 auto;
+        gap: 15px;
     }
     
     .hero-buttons .btn {
         width: 100%;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero-buttons .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
     }
 }
 
