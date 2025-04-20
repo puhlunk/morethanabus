@@ -1,0 +1,84 @@
+/* === SCHEDULE/LOCATIONS SECTION === */
+.schedule-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.schedule-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.schedule-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.schedule-day {
+    background-color: var(--white-color);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-day h3 {
+    color: var(--primary-color);
+    font-family: var(--heading-font);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--light-color);
+    padding-bottom: 10px;
+}
+
+.schedule-location {
+    margin-bottom: 20px;
+}
+
+.schedule-location .time {
+    font-weight: 700;
+    display: block;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.schedule-location .location {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.schedule-location .address {
+    display: block;
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+.schedule-note {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--gray-color);
+    font-style: italic;
+}
+
+.schedule-note i {
+    color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .schedule-table {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .schedule-day {
+        padding: 20px;
+    }
+    
+    .schedule-day h3 {
+        font-size: 1.3rem;
+    }
+}

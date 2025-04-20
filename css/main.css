@@ -10,7 +10,14 @@
 @import 'components.css';
 
 /* Import section-specific styles */
-@import 'sections.css';
+@import 'sections/hero.css';
+@import 'sections/mission.css';
+@import 'sections/about.css';
+@import 'sections/impact.css';
+@import 'sections/locations.css';
+@import 'sections/volunteer.css';
+@import 'sections/donate.css';
+@import 'sections/conclusion.css';
 
 /* Import responsive styles */
 @import 'responsive.css';

@@ -1,0 +1,265 @@
+/* === VOLUNTEER SECTION === */
+.volunteer {
+    background-color: var(--white-color);
+}
+
+.volunteer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.volunteer-text h3 {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.volunteer-text h3:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.volunteer-text p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.volunteer-text h4 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+    font-size: 1.4rem;
+}
+
+.volunteer-roles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.volunteer-roles li {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.volunteer-roles li:hover {
+    background-color: var(--light-color);
+    transform: translateX(5px);
+}
+
+.volunteer-roles li i {
+    color: var(--primary-color);
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.volunteer-form {
+    background-color: var(--white-color);
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.volunteer-form h3 {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.volunteer-form h3:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.volunteer-form .form-group {
+    margin-bottom: 25px;
+}
+
+.volunteer-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.volunteer-form input,
+.volunteer-form select,
+.volunteer-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.volunteer-form input:focus,
+.volunteer-form select:focus,
+.volunteer-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.1);
+}
+
+.volunteer-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.volunteer-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.volunteer-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Styles Enhancement */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--white-color);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px);
+    transition: transform 0.4s ease;
+    animation: modalFadeIn 0.5s ease forwards;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray-color);
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 25px;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    color: var(--gray-color);
+}
+
+.close-btn {
+    padding: 12px 30px;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments for volunteer section */
+@media (max-width: 992px) {
+    .volunteer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .volunteer-form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .volunteer-roles {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .volunteer-form {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .volunteer-form input,
+    .volunteer-form select,
+    .volunteer-form textarea {
+        padding: 12px;
+    }
+    
+    .volunteer-form h3 {
+        font-size: 1.6rem;
+    }
+}
