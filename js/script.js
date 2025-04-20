@@ -72,41 +72,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Animate Statistics Counter
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    function animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-count'));
-        const duration = 2000; // Duration in milliseconds
-        const step = target / (duration / 16); // Update every 16ms for smooth animation
-        let current = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+        // Stats Counter Fix
+        const statNumbers = document.querySelectorAll('.stat-number');
         
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                clearInterval(timer);
-                element.textContent = target;
-            } else {
-                element.textContent = Math.round(current);
-            }
-        }, 16);
-    }
-    
-    // Intersection Observer to trigger counter animation when visible
-    if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    observer.unobserve(entry.target);
-                }
+        // Set initial values for the stats instead of showing zeros
+        if (statNumbers.length > 0) {
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                stat.textContent = target; // Set the final value immediately
             });
-        }, { threshold: 0.5 });
+        }
         
-        statNumbers.forEach(stat => {
-            observer.observe(stat);
-        });
-    }
+        // Optional: If you still want the animation effect, uncomment this
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-count'));
+            const duration = 2000; // Duration in milliseconds
+            const step = target / (duration / 16); // Update every 16ms for smooth animation
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    clearInterval(timer);
+                    element.textContent = target;
+                } else {
+                    element.textContent = Math.round(current);
+                }
+            }, 16);
+        }
+        
+        // Use Intersection Observer to trigger counter animation when visible
+        if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statNumbers.forEach(stat => {
+                observer.observe(stat);
+            });
+        }
+    });
     
     // Form Submission Handling
     const volunteerForm = document.getElementById('volunteerForm');

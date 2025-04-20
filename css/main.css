@@ -14,3 +14,6 @@
 
 /* Import responsive styles */
 @import 'responsive.css';
+
+/* Import footer styles */
+@import 'footer.css';
