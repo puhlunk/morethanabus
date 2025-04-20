@@ -1,0 +1,80 @@
+/* === OVERFLOW FIXES === */
+
+/* Prevent horizontal scrolling on mobile */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
+}
+
+/* Ensure all elements respect container bounds */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix for tables and other wide elements */
+table, pre, code, img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for flex items that might overflow */
+.flex, [class*="flex-"] {
+    flex-wrap: wrap;
+}
+
+/* Deal with grid and flex items */
+@media (max-width: 768px) {
+    [class*="grid-"] {
+        display: block;
+    }
+    
+    /* Ensure volunteer-content grid behaves properly on mobile */
+    .volunteer-content,
+    .impact-content,
+    .about-content,
+    .donate-content {
+        display: block;
+        width: 100%;
+    }
+    
+    /* Fix spacing issues that might cause overflow */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Adjust impact points to prevent overflow */
+    .impact-points {
+        display: block;
+    }
+    
+    /* Fix for testimonial slider */
+    .testimonial-slider {
+        width: 100%;
+    }
+}
+
+/* Handle horizontal padding that might be excessive */
+@media (max-width: 576px) {
+    .schedule-day,
+    .impact-point,
+    .way-item,
+    .volunteer-form,
+    .testimonials {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Fix the donation impact grid */
+    .donation-impact {
+        display: block;
+    }
+    
+    /* Adjust hero buttons for smallest screens */
+    .hero-buttons .btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
