@@ -1,0 +1,16 @@
+/* Main CSS file that imports all other CSS modules */
+
+/* Import base styles (reset, variables, typography) */
+@import 'base.css';
+
+/* Import layout styles (container, grid, section) */
+@import 'layout.css';
+
+/* Import component styles (buttons, cards, forms) */
+@import 'components.css';
+
+/* Import section-specific styles */
+@import 'sections.css';
+
+/* Import responsive styles */
+@import 'responsive.css';
