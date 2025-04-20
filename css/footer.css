@@ -184,3 +184,53 @@ footer {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
+
+/* PUHLUNK Watermark */
+.puhlunk-watermark {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.puhlunk-watermark:hover {
+    opacity: 1;
+}
+
+.puhlunk-watermark a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.puhlunk-watermark a:hover {
+    color: var(--primary-color);
+}
+
+.puhlunk-watermark a::before {
+    content: '';
+    width: 15px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-right: 5px;
+}
+
+.puhlunk-watermark a::after {
+    content: '';
+    width: 15px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-left: 5px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
