@@ -22,14 +22,13 @@
     <!-- 404 Page Specific Styles -->
     <style>
         .error-page {
-            min-height: calc(100vh - 400px);
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 60px 20px;
             text-align: center;
             background-color: var(--light-color);
+            padding: 40px 20px;
         }
         
         .error-animation-container {
@@ -124,6 +123,9 @@
         
         .error-content {
             animation: fadeInUp 0.8s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         @media (max-width: 768px) {
