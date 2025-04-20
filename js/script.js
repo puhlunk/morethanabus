@@ -114,6 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const successModal = document.getElementById('successModal');
     const closeModalButtons = document.querySelectorAll('.close-modal, .close-btn');
     
+    // Ensure modal is hidden on page load
+    if (successModal) {
+        successModal.classList.remove('show');
+    }
+    
     // Function to show the success modal
     function showSuccessModal() {
         if (successModal) {
@@ -228,5 +233,84 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, { passive: true });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Modal handling
+    const successModal = document.getElementById('successModal');
+    const closeModalButtons = document.querySelectorAll('.close-modal, .close-btn');
+    
+    // Ensure modal is hidden on page load
+    if (successModal) {
+        successModal.style.display = 'none'; // Force it to be hidden initially
+        successModal.classList.remove('show');
+    }
+    
+    // Function to show the success modal
+    function showSuccessModal() {
+        if (successModal) {
+            successModal.style.display = 'flex';
+            successModal.classList.add('show');
+        }
+    }
+    
+    // Function to hide the success modal
+    function hideSuccessModal() {
+        if (successModal) {
+            successModal.classList.remove('show');
+            // Wait for animation to complete
+            setTimeout(function() {
+                successModal.style.display = 'none';
+            }, 300);
+        }
+    }
+    
+    // Add event listeners to close modal buttons
+    if (closeModalButtons.length > 0) {
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', hideSuccessModal);
+        });
+    }
+    
+    // Allow clicking outside the modal to close it
+    if (successModal) {
+        successModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideSuccessModal();
+            }
+        });
+    }
+    
+    // Form submissions
+    const volunteerForm = document.getElementById('volunteerForm');
+    const newsletterForm = document.getElementById('newsletterForm');
+    
+    // Volunteer form submission
+    if (volunteerForm) {
+        volunteerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server here
+            // For this example, we'll just show the success modal
+            showSuccessModal();
+            
+            // Reset the form
+            this.reset();
+        });
+    }
+    
+    // Newsletter form submission
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server here
+            // For this example, we'll just show the success modal
+            showSuccessModal();
+            
+            // Reset the form
+            this.reset();
+        });
     }
 });

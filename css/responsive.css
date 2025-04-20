@@ -127,7 +127,21 @@
     }
     
     .footer-content {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .footer-form .form-group {
+        flex-direction: column;
+    }
+    
+    .footer-form input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-form button {
+        border-radius: 4px;
+        width: 100%;
     }
 }
 
